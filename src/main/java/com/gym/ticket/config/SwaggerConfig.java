@@ -18,7 +18,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .useDefaultResponseMessages(false)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.daily.ticket.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.gym.ticket.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

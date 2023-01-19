@@ -13,12 +13,14 @@ public class Response<T> {
     private final int code;
 
     @ApiModelProperty(example = "상태값")
-    private final String status;
+    private final String message;
 
     @ApiModelProperty(example = "전송값")
-    private T message;
+    private T data;
 
-    public static <T> Response success(T message) {
-        return new Response<T>(HttpStatus.CREATED.value(), HttpStatus.CREATED.getReasonPhrase(), message);
+    public static <T> Response<T> success(T data) {
+        return new Response<T>(HttpStatus.CREATED.value(), HttpStatus.CREATED.getReasonPhrase(), data);
     }
+
+
 }

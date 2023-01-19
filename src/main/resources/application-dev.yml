@@ -1,7 +1,7 @@
 logging:
   level:
     org:
-      springframework: info
+      springframework.web: debug
       hibernate.sql: debug
 
 spring:
@@ -32,9 +32,3 @@ spring:
   mvc:
    pathmatch:
      matching-strategy: ant_path_matcher
-
-springfox:
-  documentation:
-    swagger:
-      v2:
-        use-model-v3: false

@@ -36,6 +36,7 @@ public class MemberController {
 
         MemberDto result = memberService.addMember(member);
         return ResponseEntity.status(HttpStatus.CREATED)
+                             .header("location", "http://gym-ticket.com/login")
                              .body(Response.success(result));
     }
 }

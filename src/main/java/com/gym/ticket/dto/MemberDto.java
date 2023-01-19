@@ -47,5 +47,14 @@ public class MemberDto {
                     .deleteAt(member.getDeleteAt())
                     .build();
         }
+
+        public Member toEntity() {
+                return Member.builder()
+                        .userId(this.userId)
+                        .password(this.password)
+                        .email(this.email)
+                        .certification(this.certification)
+                        .address(this.address).build();
+        }
 }
 
