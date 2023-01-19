@@ -10,10 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -22,25 +19,24 @@ import java.time.LocalDateTime;
 @Table(name = "member",
         uniqueConstraints = @UniqueConstraint(columnNames = "userId"))
 @EntityListeners(AuditingEntityListener.class)
-@Validated
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long no;
 
-    @NotNull @Size(min = 5, max = 15) // 최소 5 ~ 최대 15 길이의 ID
+    @NotBlank @Size(min = 5, max = 15) // 최소 5 ~ 최대 15 길이의 ID
     private String userId;
 
-    @NotNull @Size(min = 8)
+    @NotBlank @Size(min = 8)
     private String password;
 
-    @Email @NotNull
+    @NotBlank @Email
     private String email;
 
     private Boolean certification;
     private String address;
 
-    @NotNull @CreatedDate
+    @NotBlank @CreatedDate
     private LocalDateTime createAt;
 
     @Null
